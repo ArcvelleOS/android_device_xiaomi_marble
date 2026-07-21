@@ -90,6 +90,8 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libutils-shim.so')
         .replace_needed('android.hardware.common-V2-ndk_platform.so', 'android.hardware.common-V2-ndk.so')
         .replace_needed('vendor.qti.hardware.display.config-V5-ndk_platform.so', 'vendor.qti.hardware.display.config-V5-ndk.so'),
+    'vendor/etc/libnfc-nxp.conf': blob_fixup()
+        .regex_replace('DEVICE_HOST_WHITE_LIST', 'DEVICE_HOST_ALLOW_LIST'),
     (
         'vendor/etc/camera/marble_enhance_motiontuning.xml',
         'vendor/etc/camera/marble_motiontuning.xml',
